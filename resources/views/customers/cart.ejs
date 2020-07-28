@@ -1,45 +1,29 @@
 <section class="cart py-16">
+    <% if(session.cart) { %>
     <div class="order container mx-auto w-1/2">
         <div class="flex items-center border-b border-gray-300 pb-4">
             <img src="/img/cart-black.png" alt="">
             <h1 class="font-bold ml-4 text-2xl">Order summary</h1>
         </div>
         <div class="pizza-list">
+            <% for(let pizza of Object.values(session.cart.items)) { %>
             <div class="flex items-center my-8">
-                <img class="w-24" src="/img/pizza.png" alt="">
+                <img class="w-24" src="/img/<%= pizza.item.image %>" alt="">
                 <div class="flex-1 ml-4">
-                    <h1>Marinara</h1>
-                    <span>MEDIUM</span>
+                    <h1><%= pizza.item.name %></h1>
+                    <span><%= pizza.item.size %></span>
                 </div>
-                <span class="flex-1">1 Pcs</span>
-                <span class="font-bold text-lg">₹300</span>
+                <span class="flex-1"><%= pizza.qty %> Pcs</span>
+                <span class="font-bold text-lg">₹ <%= pizza.item.price * pizza.qty %></span>
             </div>
+            <%  } %>
 
-            <div class="flex items-center my-8">
-                <img class="w-24" src="/img/pizza.png" alt="">
-                <div class="flex-1 ml-4">
-                    <h1>Marinara</h1>
-                    <span>MEDIUM</span>
-                </div>
-                <span class="flex-1">1 Pcs</span>
-                <span class="font-bold text-lg">₹300</span>
-            </div>
-
-            <div class="flex items-center my-8">
-                <img class="w-24" src="/img/pizza.png" alt="">
-                <div class="flex-1 ml-4">
-                    <h1>Marinara</h1>
-                    <span>MEDIUM</span>
-                </div>
-                <span class="flex-1">1 Pcs</span>
-                <span class="font-bold text-lg">₹300</span>
-            </div>
         </div>
         <hr>
         <div class="text-right py-4">
             <div>
                 <span class="text-lg font-bold">Total Amount:</span>
-                <span class="amount text-2xl font-bold ml-2">₹300</span>
+                <span class="amount text-2xl font-bold ml-2">₹<%= session.cart.totalPrice %></span>
             </div>
             <div>
                 <form action="" class="mt-12">
@@ -56,7 +40,8 @@
                 to continue</a> -->
         </div>
     </div>
-    <!-- <div class="empty-cart py-16">
+    <% } else { %>
+    <div class="empty-cart py-16">
         <div class="container mx-auto text-center">
             <h1 class="text-3xl font-bold mb-2">Cart Empty 😕</h1>
             <p class="text-gray-500 text-lg mb-12">You probably haven't ordered a pizza yet. <br>
@@ -64,5 +49,6 @@
             <img class="w-2/5 mx-auto" src="/img/empty-cart.png" alt="empty-cart">
             <a href="/" class="inline-block px-6 py-2 rounded-full btn-primary text-white font-bold mt-12">Go back</a>
         </div>
-    </div> -->
+    </div>
+    <% } %>
 </section>
