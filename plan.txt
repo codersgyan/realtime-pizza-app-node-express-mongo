@@ -39,7 +39,6 @@
 [+] Show orders on admin orders page
 [ ] Create Orders single page with status
 [ ] Order tracker 
-    - dependancies moment
 [ ] Socket connection 
     - dependancies socket.io
 [ ] Build project for deployment
