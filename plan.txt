@@ -1,13 +1,13 @@
 [+] Create directory structure
-[+] Create a NPM project and install all dependancies 
+[+] Create a NPM project and install all dependancies
     - Dependancies
         - express
         - ejs express-ejs-layouts
-    - Dev dependancies 
+    - Dev dependancies
         - nodemon
 [+] Create Express server - Create a server.js file
-[+] Git setup and first commit 
-[+] Install Laravel Mix 
+[+] Git setup and first commit
+[+] Install Laravel Mix
     - setup js and scss
 [+] Install tailwind css
 [+] Create Home page using Html and Css
@@ -38,9 +38,9 @@
 [+] Show all my orders on custormer orders page
 [+] Show orders on admin orders page
 [+] Change order status
-[ ] Create Orders single page with status
-[ ] Order tracker 
-    [ ] Socket connection 
+[+] Create Orders single page with status
+[+] Order tracker
+    [+] Socket connection
         - dependancies socket.io
 [ ] Build project for deployment
 [ ] Deploy project on live server

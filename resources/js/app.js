@@ -32,7 +32,7 @@ addToCart.forEach((btn) => {
     })
 })
 
-// Remove alert message after X seconds 
+// Remove alert message after X seconds
 const alertMsg = document.querySelector('#success-alert')
 if(alertMsg) {
     setTimeout(() => {
@@ -42,7 +42,7 @@ if(alertMsg) {
 
 
 
-// Change order status 
+// Change order status
 let statuses = document.querySelectorAll('.status_line')
 let hiddenInput = document.querySelector('#hiddenInput')
 let order = hiddenInput ? hiddenInput.value : null
@@ -59,7 +59,7 @@ function updateStatus(order) {
        let dataProp = status.dataset.status
        if(stepCompleted) {
             status.classList.add('step-completed')
-       } 
+       }
        if(dataProp === order.status) {
             stepCompleted = false
             time.innerText = moment(order.updatedAt).format('hh:mm A')
@@ -67,23 +67,23 @@ function updateStatus(order) {
            if(status.nextElementSibling) {
             status.nextElementSibling.classList.add('current')
            }
-       }   
+       }
     })
 
 }
 
 updateStatus(order);
 
-// Socket 
+// Socket
 let socket = io()
-initAdmin(socket)
-// Join 
+
+// Join
 if(order) {
     socket.emit('join', `order_${order._id}`)
 }
 let adminAreaPath = window.location.pathname
-console.log(adminAreaPath)
 if(adminAreaPath.includes('admin')) {
+    initAdmin(socket)
     socket.emit('join', 'adminRoom')
 }
 

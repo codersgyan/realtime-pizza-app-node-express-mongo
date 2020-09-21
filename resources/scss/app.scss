@@ -89,7 +89,7 @@ section.status {
     position: relative;
     padding-left: 20px;
 }
-// Dots 
+// Dots
 .status-box ul li span:after {
     content: '';
     position: absolute;
@@ -103,7 +103,7 @@ section.status {
     box-shadow:0 0 1px 10px $secondary;
 }
 
-// Icons 
+// Icons
 .status-box ul li span:before{
     font-family: "Line Awesome Free";
     font-size: 46px;
@@ -147,27 +147,27 @@ section.status {
    background: $dark;
    margin-top: 10px;
 }
-// Last dot 
+// Last dot
 .status-box ul li:nth-child(5) span:after {
-    box-shadow:0 20px 1px 20px $secondary; 
-} 
+    box-shadow:0 20px 1px 20px $secondary;
+}
 
 // line
 .status-box ul li.step-completed:before {
     background: $gray;
 }
 
-// dots 
+// dots
 .status-box ul li.step-completed span:after {
     background: $gray;
 }
 
-// text 
+// text
 .status-box ul li.step-completed span {
     color: $gray;
 }
 
-// Current status 
+// Current status
 .status-box ul li.current span {
     color: $primary;
 }
@@ -182,3 +182,19 @@ section.status {
     margin-top: 8px;
 }
 
+@media(max-width:1060px) {
+    .container {
+        max-width: 90%;
+    }
+    table {
+       display: block;
+       overflow-x: auto;
+       white-space: nowrap;
+    }
+}
+
+@media(max-width: 768px) {
+    .status-box ul li span:before {
+        font-size: 34px;
+    }
+}
