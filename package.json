@@ -13,6 +13,8 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@stripe/stripe-js": "^1.10.0",
     "axios": "^0.19.2",
     "bcrypt": "^5.0.0",
     "connect-mongo": "^3.2.0",
@@ -28,7 +30,8 @@
     "noty": "^3.2.0-beta",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "stripe": "^8.118.0"
   },
   "devDependencies": {
     "laravel-mix": "^5.0.4",

@@ -72,18 +72,21 @@ export function initAdmin(socket) {
                 <td class="border px-4 py-2">
                     ${ moment(order.createdAt).format('hh:mm A') }
                 </td>
+                <td class="border px-4 py-2">
+                    ${ order.paymentStatus ? 'paid' : 'Not paid' }
+                </td>
             </tr>
         `
         }).join('')
     }
-    // Socket 
+    // Socket
     socket.on('orderPlaced', (order) => {
         new Noty({
             type: 'success',
             timeout: 1000,
             text: 'New order!',
             progressBar: false,
-        }).show(); 
+        }).show();
         orders.unshift(order)
         orderTableBody.innerHTML = ''
         orderTableBody.innerHTML = generateMarkup(orders)
