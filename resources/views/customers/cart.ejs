@@ -13,6 +13,15 @@
                     <h1><%= pizza.item.name %></h1>
                     <span><%= pizza.item.size %></span>
                 </div>
+
+                <button data-pizza="<%=JSON.stringify(pizza)%>" class="add-to-cart py-1 px-6 rounded-full flex item-center font-bold">
+                    <span>+</span>
+                </button>
+                <button data-pizza="<%=JSON.stringify(pizza)%>" class="remove-to-cart py-1 px-6 rounded-full flex item-center font-bold">
+                    <span>-</span>
+                </button>
+                <span class="flex-1 ml-1"> <%= pizza.qty %> Pcs</span>
+
                 <span class="flex-1"><%= pizza.qty %> Pcs</span>
                 <span class="font-bold text-lg">₹ <%= pizza.item.price * pizza.qty %></span>
             </div>
