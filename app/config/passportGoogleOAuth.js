@@ -1,0 +1,45 @@
+var GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const User = require("../models/user");
+
+function init(passport) {
+  passport.use(
+    new GoogleStrategy(
+      {
+        clientID: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
+        callbackURL: process.env.CALLBACK_URL,
+      },
+      function(accessToken, refreshToken, profile, done) {
+        User.findById(profile.id)
+          .then(async (user) => {
+            if (!user) {
+              const newUser = getInfo(profile);
+              const user = new User({ ...newUser });
+              try {
+                await user.save();
+                done(null, user);
+              } catch (e) {
+                req.flash("error", "Something went wrong");
+                return res.redirect("/register");
+              }
+            } else {
+              done(null, user);
+            }
+          })
+          .catch((err) => {
+            done(err, null);
+          });
+      }
+    )
+  );
+}
+
+function getInfo(profile) {
+  return {
+    _id: profile?.id,
+    name: profile?.displayName || "user",
+    email: profile.emails[0].value,
+  };
+}
+
+module.exports = init;

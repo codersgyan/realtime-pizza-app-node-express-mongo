@@ -1,6 +1,8 @@
 const User = require('../../models/user')
 const bcrypt = require('bcrypt')
 const passport = require('passport')
+var mongoose = require("mongoose");
+
 function authController() {
     const _getRedirectUrl = (req) => {
         return req.user.role === 'admin' ? '/admin/orders' : '/customer/orders'
@@ -63,6 +65,7 @@ function authController() {
          const hashedPassword = await bcrypt.hash(password, 10)
          // Create a user 
          const user = new User({
+            _id: mongoose.Types.ObjectId(),
              name,
              email,
              password: hashedPassword
@@ -79,7 +82,10 @@ function authController() {
         logout(req, res) {
           req.logout()
           return res.redirect('/login')  
-        }
+        },
+        googleLogin(req, res, next) {
+            return res.redirect("/");
+        },
     }
 }
 

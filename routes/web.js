@@ -4,6 +4,7 @@ const cartController = require('../app/http/controllers/customers/cartController
 const orderController = require('../app/http/controllers/customers/orderController')
 const adminOrderController = require('../app/http/controllers/admin/orderController')
 const statusController = require('../app/http/controllers/admin/statusController')
+const passport = require("passport");
 
 // Middlewares 
 const guest = require('../app/http/middlewares/guest')
@@ -17,7 +18,10 @@ function initRoutes(app) {
     app.get('/register', guest, authController().register)
     app.post('/register', authController().postRegister)
     app.post('/logout', authController().logout)
-
+    app.get("/auth/google", passport.authenticate("google", {
+          scope: ["profile", "email"] })),
+    app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/login" }),
+        authController().googleLogin ),
     app.get('/cart', cartController().index)
     app.post('/update-cart', cartController().update)
 

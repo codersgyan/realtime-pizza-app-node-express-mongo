@@ -29,6 +29,7 @@
     "mongoose": "^5.9.25",
     "noty": "^3.2.0-beta",
     "passport": "^0.4.1",
+    "passport-google-oauth": "^2.0.0",
     "passport-local": "^1.0.0",
     "socket.io": "^2.3.0",
     "stripe": "^8.118.0"
