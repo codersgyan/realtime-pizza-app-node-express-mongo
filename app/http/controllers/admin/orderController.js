@@ -1,4 +1,4 @@
-const Order = require("../../../models/order");
+const Order = require("../../../models/order")
 
 function orderController() {
   return {
@@ -13,16 +13,16 @@ function orderController() {
           res.header(
             "Cache-Control",
             "no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0"
-          );
+          )
 
           if (req.xhr) {
-            return res.json(orders);
+            return res.json(orders)
           } else {
-            return res.render("admin/orders");
+            return res.render("admin/orders")
           }
-        });
+        })
     },
-  };
+  }
 }
 
-module.exports = orderController;
+module.exports = orderController

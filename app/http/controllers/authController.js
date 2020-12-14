@@ -31,7 +31,7 @@ function authController() {
                         req.flash('error', info.message ) 
                         return next(err)
                     }
-                    req.flash("success", "Loggedin successfully");
+                    req.flash("success", "Loggedin successfully")
                     return res.redirect(_getRedirectUrl(req))
                 })
             })(req, res, next)
@@ -78,7 +78,7 @@ function authController() {
         },
         logout(req, res) {
           req.logout()
-          req.flash("success", "Loggout successfully");
+          req.flash("success", "Loggout successfully")
           return res.redirect('/login')  
         }
     }
