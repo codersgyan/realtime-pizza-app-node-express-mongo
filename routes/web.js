@@ -18,7 +18,7 @@ function initRoutes(app) {
     app.get('/register', guest, authController().register)
     app.post('/register', authController().postRegister)
     app.post('/logout', authController().logout)
-    app.get("/auth/google", passport.authenticate("google", {
+    app.get("/auth/google",guest, passport.authenticate("google", {
           scope: ["profile", "email"] })),
     app.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/login" }),
         authController().googleLogin ),
