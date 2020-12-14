@@ -10,10 +10,10 @@ function init(passport) {
         callbackURL: process.env.CALLBACK_URL,
       },
       function(accessToken, refreshToken, profile, done) {
-        User.findById(profile.id)
+        const newUser = getInfo(profile);
+        User.findOne({ email: newUser.email })
           .then(async (user) => {
             if (!user) {
-              const newUser = getInfo(profile);
               const user = new User({ ...newUser });
               try {
                 await user.save();
@@ -36,7 +36,6 @@ function init(passport) {
 
 function getInfo(profile) {
   return {
-    _id: profile?.id,
     name: profile?.displayName || "user",
     email: profile.emails[0].value,
   };

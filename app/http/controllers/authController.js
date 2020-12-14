@@ -15,7 +15,6 @@ function authController() {
           return res.redirect("/login") 
         }
         passport.authenticate("local", (err, user, info) => {
-          console.log(user) 
           if (err) {
             req.flash("error", info.message) 
             return next(err) 
@@ -29,8 +28,7 @@ function authController() {
               req.flash("error", info.message) 
               return next(err) 
             }
-            console.log(req.user) 
-            return res.redirect("/") 
+            return res.redirect(_getRedirectUrl(req))
           }) 
         })(req, res, next) 
       }
@@ -66,7 +64,6 @@ function authController() {
          const hashedPassword = await bcrypt.hash(password, 10)
          // Create a user 
          const user = new User({
-            _id: mongoose.Types.ObjectId(),
              name,
              email,
              password: hashedPassword
@@ -84,7 +81,7 @@ function authController() {
           return res.redirect('/login')  
         },
         googleLogin(req, res, next) {
-            return res.redirect("/") 
+          return res.redirect(_getRedirectUrl(req))
         },
     }
 }
