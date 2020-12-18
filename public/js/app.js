@@ -27875,8 +27875,8 @@ function _initStripe() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/codersgyan/Documents/youtube/realtime-pizza/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/codersgyan/Documents/youtube/realtime-pizza/resources/scss/app.scss */"./resources/scss/app.scss");
+__webpack_require__(/*! /Users/sahil.julka/Desktop/Self/nodejs/realtime-pizza-app-node-express-mongo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/sahil.julka/Desktop/Self/nodejs/realtime-pizza-app-node-express-mongo/resources/scss/app.scss */"./resources/scss/app.scss");
 
 
 /***/ })

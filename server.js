@@ -11,6 +11,7 @@ const flash = require('express-flash')
 const MongoDbStore = require('connect-mongo')(session)
 const passport = require('passport')
 const Emitter = require('events')
+const passportGoogleInit = require("./app/config/passportGoogleOAuth");
 
 // Database connection
 mongoose.connect(process.env.MONGO_CONNECTION_URL, { useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true, useFindAndModify : true });
@@ -43,6 +44,7 @@ app.use(session({
 
 // Passport config
 const passportInit = require('./app/config/passport')
+passportGoogleInit(passport)
 passportInit(passport)
 app.use(passport.initialize())
 app.use(passport.session())
