@@ -46,6 +46,7 @@ section.hero {
     transition: $smooth;
     &:hover {
         background: $primary-hover;
+        outline: none;
     }
 }
 
