@@ -28,6 +28,7 @@ function authController() {
               req.flash("error", info.message) 
               return next(err) 
             }
+            req.flash("success", "Logged in successfully");
             return res.redirect(_getRedirectUrl(req))
           }) 
         })(req, res, next) 
@@ -78,6 +79,7 @@ function authController() {
         },
         logout(req, res) {
           req.logout()
+          req.flash("success", "Logged out successfully")
           return res.redirect('/login')  
         },
         googleLogin(req, res, next) {
