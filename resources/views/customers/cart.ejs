@@ -7,7 +7,8 @@
         </div>
         <div class="pizza-list">
             <% for(let pizza of Object.values(session.cart.items)) { %>
-            <div class="flex items-center my-8">
+            <div class="cart-item flex items-center my-8">
+                <div data-pizza="<%= JSON.stringify(pizza) %>" class="cancel-item-icon"><i style="font-size:30px;" class="las la-window-close"></i></div>
                 <img class="w-24" src="/img/<%= pizza.item.image %>" alt="">
                 <div class="flex-1 ml-4">
                     <h1><%= pizza.item.name %></h1>

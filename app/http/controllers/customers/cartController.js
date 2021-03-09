@@ -5,6 +5,17 @@ function cartController() {
         index(req, res) {
             res.render('customers/cart')
         },
+        removeCartItem(req, res) {
+            let { pizza } = req.body
+            let cart = req.session.cart
+            delete cart.items[pizza.item._id]
+            cart.totalQty -= pizza.qty
+            cart.totalPrice -= pizza.item.price * pizza.qty
+            res.json({
+                updatedQty : cart.totalQty,
+                updatedTotalPrice : cart.totalPrice,
+            })
+        },
         update(req, res) {
             // let cart = {
             //     items: {

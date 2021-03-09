@@ -211,12 +211,6 @@
   }
 }
 
-@keyframes noty_modal_out {
-  100% {
-    opacity: 0;
-  }
-}
-
 @-webkit-keyframes noty_anim_in {
   100% {
     transform: translate(0);
@@ -538,5 +532,53 @@ section.status {
 
 .StripeElement--webkit-autofill {
   background-color: #fefde5 !important;
+}
+
+.cart-item {
+  border-bottom: 1px solid;
+  padding-bottom: 40px;
+  transition: transform 2s ease, opacity 2s ease;
+}
+
+.cancel-item-icon {
+  color: #e81919;
+}
+
+.cancel-item-icon-progress {
+  color: #e89f19;
+  -webkit-animation: shake 1.5s ease infinite;
+          animation: shake 1.5s ease infinite;
+}
+
+.cancel-item-icon-success {
+  color: #4BB543;
+}
+
+@-webkit-keyframes shake {
+  25% {
+    transform: rotate(40deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-40deg);
+  }
+}
+
+@keyframes shake {
+  25% {
+    transform: rotate(40deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-40deg);
+  }
 }
 

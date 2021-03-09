@@ -19,6 +19,7 @@ function initRoutes(app) {
     app.post('/logout', authController().logout)
 
     app.get('/cart', cartController().index)
+    app.post('/remove-cart-item', cartController().removeCartItem)
     app.post('/update-cart', cartController().update)
 
     // Customer routes
