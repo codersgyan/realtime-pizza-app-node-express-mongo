@@ -361,6 +361,7 @@ section.hero {
 
 .btn-primary:hover {
   background: #b23301;
+  outline: none;
 }
 
 section.cart {
