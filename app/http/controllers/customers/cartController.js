@@ -39,7 +39,26 @@ function cartController() {
                 cart.totalPrice =  cart.totalPrice + req.body.price
             }
             return res.json({ totalQty: req.session.cart.totalQty })
-        }
+        },
+        
+        remove(req, res) {
+            let cart = req.session.cart;
+            if (cart.totalQty > 0) {
+              cart.totalQty = cart.totalQty - 1;
+              cart.totalPrice = cart.totalPrice - req.body.price;
+      
+              if (cart.items[req.body._id].qty === 1) {
+                delete cart.items[req.body._id];
+              } else {
+                cart.items[req.body._id].qty = cart.items[req.body._id].qty - 1;
+              }
+              if (cart.totalQty === 0) {
+                delete req.session.cart;
+              }
+            }
+            let totalQty = cart ? cart.totalQty : 0;
+            return res.json({ totalQty: totalQty, cartItems: cart.items });
+        },
     }
 }
 

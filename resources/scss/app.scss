@@ -27,7 +27,8 @@ section.hero {
 .size {
     background: $secondary;
 }
-.add-to-cart {
+.add-to-cart,
+.remove-to-cart {
     border: 2px solid $primary;
     color: $primary;
     transition: $smooth;

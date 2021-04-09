@@ -335,19 +335,22 @@ section.hero {
   background: #F8F8F8;
 }
 
-.add-to-cart {
+.add-to-cart,
+.remove-to-cart {
   border: 2px solid #FE5F1E;
   color: #FE5F1E;
   transition: all 0.3s ease-in-out;
 }
 
-.add-to-cart:hover {
+.add-to-cart:hover,
+.remove-to-cart:hover {
   background: #FE5F1E;
   border-color: #fff;
   color: #fff;
 }
 
-.add-to-cart:focus {
+.add-to-cart:focus,
+.remove-to-cart:focus {
   outline: none;
 }
 
